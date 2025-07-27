@@ -1,0 +1,49 @@
+ @import url("//fontawesome.io/assets/font-awesome/css/font-awesome.css");
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+ .support {
+    display: flex;
+    width: 1100px; 
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+ }
+
+ p.black-color {
+   color: black;
+ }
+
+ .support img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+ body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f1f4f9;
+    text-align: center;
+    margin-top: 80px;
+    color: #333;
+}
+
+ h1 {
+    color: #0d2342 ;
+}
+
+ h2 {
+    color: #2b4c7e;
+}
+
+ p {
+   color: #2b4c7e;
+}
+
+
+/*Blank*/
+
+/*
+th {     }
+th, td {    }
+*/
