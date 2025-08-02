@@ -47,10 +47,10 @@
    top: 0;
    z-index: 1;
    border:2px solid #f3efef;
-   padding: 5px 5px 5px 800px;
+   padding: 5px 5px 5px 500px;
 }
 .box-2 {
-   position: relative;
+   position: static;
    border:5px solid #f3efef;
    padding: 5px 5px 5px 5px;
 }
