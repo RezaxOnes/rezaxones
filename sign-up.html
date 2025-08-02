@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <link href="/style/sign-up.css" rel='stylesheet'/>
+</head>
+<body>
+    <form action="/backend/back-end.js" method="post" autocomplete="off" target="_blank">
+    <label for="your-email">Email</label>
+    <br/>
+    <input type="email" id="your-email" name="email"/>
+    <br/>
+    <label for="your-pass">Password</label>
+    <br/>
+    <input type="password" id="your-pass" name="password"/>
+    <br/>
+    <label for="date-of-birth">Date Of Birth</label>
+    <br/>
+    <input type="date" id="date-of-birth" name="date"/>
+    <br/>
+    <label for="your-FavourLang">Which language do you favour</label>
+    <br/>
+    <select id="your-FavourLang" name="languageUserWasFavour">
+         <option value="None" selected>Không Có</option>
+         <option value="C++">Ngôn Ngữ C++</option>
+         <option value="JS">Ngôn Ngữ JS</option>
+         <option value="PHP">Ngôn Ngữ PHP</option> 
+         <option value="Python">Ngôn Ngữ Python</option>
+    </select>
+    <br/><br/>
+    <input type="submit" value="Gửi"/>
+    </form>
+    <h4> Lưu ý: Hiện tại không có logic xử lí những thông tin bạn nhập nên sẽ không được lưu trên hệ thống!</h4>
+</body>
+</html>
