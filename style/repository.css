@@ -10,7 +10,7 @@
 
 .table-border{
    position: relative;
-   text-transform: capitalize;
+   text-transform: none;
    text-align: center;
    margin: auto;
    border-collapse: collapse;
