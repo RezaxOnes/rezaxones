@@ -1,17 +1,25 @@
+let token = localStorage.getItem("token");
+
+// Nếu không có token, hiển thị Guest luôn
+if (!token) {
+    document.getElementById("username").innerText = "Guest";
+    document.getElementById("language").innerText = "NAN/Null/None";
+} else {
     fetch("/api/profile", {
         method: "GET",
         headers: {
-          "Authorization": "Bearer " + localStorage.getItem("token")
+            "Authorization": "Bearer " + token
         }
-      })
-      .then(res => res.json())
-      .then(data => {
+    })
+    .then(res => res.json())
+    .then(data => {
         const u = data.user || data;
         document.getElementById("username").innerText = u.username || "Guest";
         document.getElementById("language").innerText = u.language || "NAN/Null/None";
-      })
-      .catch(err => {
+    })
+    .catch(err => {
+        console.error(err);
         document.getElementById("username").innerText = "Guest";
         document.getElementById("language").innerText = "NAN/Null/None";
-        console.error(err);
-      });
+    });
+}
