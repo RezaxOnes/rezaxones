@@ -5,7 +5,7 @@ if (!token) {
     document.getElementById("username").innerText = "Guest";
     document.getElementById("language").innerText = "NAN/Null/None";
 } else {
-    fetch("/api/profile", {
+    fetch("https://api2.rezaxones.com/profile", {
         method: "GET",
         headers: {
             "Authorization": "Bearer " + token
