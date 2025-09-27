@@ -1,25 +1,28 @@
-let token = localStorage.getItem("token");
+// profile.js
+const token = localStorage.getItem("token");
 
-// Nếu không có token, hiển thị Guest luôn
-if (!token) {
+if (token) {
+  fetch("https://api2.rezaxones.com/profile", {  // hoặc URL thật của backend
+    method: "GET",
+    headers: {
+      "Authorization": "Bearer " + token
+    }
+  })
+  .then(res => {
+    if (!res.ok) throw new Error("Không thể lấy profile");
+    return res.json();
+  })
+  .then(data => {
+    document.getElementById("username").innerText = data.username || "Guest";
+    document.getElementById("language").innerText = data.language || "N/A";
+  })
+  .catch(err => {
+    console.error(err);
     document.getElementById("username").innerText = "Guest";
-    document.getElementById("language").innerText = "NAN/Null/None";
+    document.getElementById("language").innerText = "N/A";
+  });
 } else {
-    fetch("https://api2.rezaxones.com/profile", {
-        method: "GET",
-        headers: {
-            "Authorization": "Bearer " + token
-        }
-    })
-    .then(res => res.json())
-    .then(data => {
-        const u = data.user || data;
-        document.getElementById("username").innerText = u.username || "Guest";
-        document.getElementById("language").innerText = u.language || "NAN/Null/None";
-    })
-    .catch(err => {
-        console.error(err);
-        document.getElementById("username").innerText = "Guest";
-        document.getElementById("language").innerText = "NAN/Null/None";
-    });
+  // Chưa có token
+  document.getElementById("username").innerText = "Guest";
+  document.getElementById("language").innerText = "N/A";
 }
