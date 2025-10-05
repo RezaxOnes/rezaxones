@@ -6,6 +6,14 @@
    background-color: #9eaeca;
  }
 
+.menu {
+  display: flex;
+  font-weight: bold;
+  gap: 10px;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
 #title-main {
    color: #0d2342;
    position: relative;
@@ -54,7 +62,8 @@
 .box-2 {
    position: static;
    border:5px solid #f3efef;
-   padding: 5px 5px 5px 5px;
+   padding: 10px 10px 10px 10px;
+   width: fit-content;
 }
 .support {
     width: 1100px; 
@@ -65,10 +74,10 @@
  }
 
  .support img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .myEmail {
@@ -77,6 +86,8 @@
    padding:10px;
    font-size: 18px;
 }
+
+
 /*Blank*/
 
 /*
