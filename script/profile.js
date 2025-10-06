@@ -1,8 +1,7 @@
-// profile.js
 const token = localStorage.getItem("token");
 
 if (token) {
-  fetch("https://api2.rezaxones.com/profile", {  // hoặc URL thật của backend
+  fetch("https://api2.rezaxones.com/profile", {
     method: "GET",
     headers: {
       "Authorization": "Bearer " + token
@@ -13,16 +12,14 @@ if (token) {
     return res.json();
   })
   .then(data => {
-    document.getElementById("username").innerText = data.username || "Guest";
-    document.getElementById("language").innerText = data.language || "N/A";
+    document.getElementById("username").innerText = data.USERNAME || "Guest";
+    document.getElementById("language").innerText = data.LANGUAGE || "N/A";
   })
   .catch(err => {
-    console.error(err);
     document.getElementById("username").innerText = "Guest";
     document.getElementById("language").innerText = "N/A";
   });
 } else {
-  // Chưa có token
   document.getElementById("username").innerText = "Guest";
   document.getElementById("language").innerText = "N/A";
 }
