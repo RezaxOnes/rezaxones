@@ -52,6 +52,12 @@
    margin-right: 20px;
 }
 
+#only4myteam {
+   color: inherit;
+   text-decoration-line: none;
+   margin-right: 20px;
+}
+
 .box-1 {
    position: sticky;
    top: 0;
