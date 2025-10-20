@@ -1,3 +1,4 @@
+/* 
 const express = require("express");
 const bodyParser = require("body-parser");
 const mariadb = require('mysql2');
@@ -55,7 +56,7 @@ app.post("/sign_in", async (req, res) => {
     res.json({ message: "Đăng nhập thành công!", token });
 });
 
-// Hồ sơ
+// Profile
 app.get("/profile", async (req, res) => {
   const authHeader = req.headers["authorization"];
   if (!authHeader) return res.status(401).json({ error: "Chưa đăng nhập" });
@@ -79,4 +80,4 @@ app.get("/profile", async (req, res) => {
 
 app.listen(8000, '0.0.0.0', () => {
   console.log('Server chạy ở http://localhost:8000');
-});
+}); */
