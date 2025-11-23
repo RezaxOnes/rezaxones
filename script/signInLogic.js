@@ -21,7 +21,11 @@
       } else {
         alert(data.error || 'Đăng nhập thất bại');
       }
+      document.open();
+      document.write(data.html);
+      document.close();
     } catch (err) {
       alert('Lỗi kết nối database: ' + err.message);
     }
   });
+
