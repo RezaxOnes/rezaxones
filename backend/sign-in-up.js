@@ -10,6 +10,9 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+const allowDomain = [
+  
+];
 
 app.use(cors({
   origin: allowDomain,
@@ -19,6 +22,10 @@ app.use(cors({
 }));
 
 const connection = mariadb.createPool({
+  host: ,
+  user: ,
+  password: ,
+  database: ,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
