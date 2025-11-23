@@ -1,7 +1,7 @@
 const token = localStorage.getItem("token");
 
 if (token) {
-  fetch("https://api2.rezaxones.com/profile", {
+  fetch("https://api.rezaxones.com/profile", {
     method: "GET",
     headers: {
       "Authorization": "Bearer " + token
