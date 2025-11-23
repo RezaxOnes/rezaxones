@@ -5,13 +5,19 @@ const mariadb = require('mysql2');
 const bcrypt = require("bcrypt");  
 const jwt = require("jsonwebtoken"); 
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+const allowDomain = [
+   'https://rezaxones.com',
+   'https://offline.rezaxones.com'
+];
+
 app.use(cors({
-  origin: 'https://rezaxones.com',
+  origin: allowDomain,
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -52,7 +58,7 @@ app.post("/sign_in", async (req, res) => {
     const user = rows[0];
     const match = await bcrypt.compare(password, user.PASSWORD);
     if (!match) return res.status(400).json({ error: "Sai tài khoản hoặc mật khẩu!" });
-    const token = jwt.sign({ userCookie: user.STT, username: user.USERNAME }, "mySecretKey", { expiresIn: "24h" });
+    const token = jwt.sign({ userCookie: user.STT, username: user.USERNAME }, process.env.JWT_SECRET, { expiresIn: "24h" });
     res.json({ message: "Đăng nhập thành công!", token });
 });
 
@@ -61,7 +67,7 @@ app.get("/profile", async (req, res) => {
   const authHeader = req.headers["authorization"];
   if (!authHeader) return res.status(401).json({ error: "Chưa đăng nhập" });
   const token = authHeader.split(" ")[1];
-  jwt.verify(token, "mySecretKey", async (err, decoded) => {
+  jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
     if (err) return res.status(403).json({ error: "Token không hợp lệ" });
     try {
       const [rows] = await connection.query("SELECT `USERNAME`, `LANGUAGE` FROM `users` WHERE `STT` = ?", [decoded.userCookie]);
@@ -76,8 +82,10 @@ app.get("/profile", async (req, res) => {
   });
 });
 
-// Localhost:8000 //
+// Localhost:9999 //
 
-app.listen(8000, '0.0.0.0', () => {
-  console.log('Server chạy ở http://localhost:8000');
-}); */
+app.listen(9999, '0.0.0.0', () => {
+  console.log('Server chạy ở http://localhost:9999');
+});
+
+ */
