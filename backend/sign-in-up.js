@@ -12,8 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const allowDomain = [
-   'https://rezaxones.com',
-   'https://offline.rezaxones.com'
+  
 ];
 
 app.use(cors({
@@ -23,10 +22,10 @@ app.use(cors({
 }));
 
 const connection = mariadb.createPool({
-  host: Host,   
-  user: User,       
-  password: myPassword, 
-  database: dataBase,
+  host: ,
+  user: ,
+  password: ,
+  database: ,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
@@ -34,32 +33,201 @@ const connection = mariadb.createPool({
 
 // Đăng kí
 app.post("/sign_up", async (req, res) => {
+  let inCompleteSignUp=`<!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <title>Không Tìm Thấy!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://rezaxones.com/storage/rezaxones_icon.png" rel="icon" type="image/png" />
+    <!--Open Graph-->
+    <meta property="og:url" content="https://rezaxones.com" />
+    <meta property="og:title" content="RezaxOnes" />
+    <meta property="og:description" content="Trang chủ của website rezaxones.com" />
+    <meta property="og:image" content="https://rezaxones.com/storage/rezaxones_image.png" />
+    <!---->
+    <!--API-->
+    <link href="https://rezaxones.com/style/error.css" rel="stylesheet"/>
+    <!---->
+    </head>
+    <body>
+    <div class='result'>
+        <p style='color:red;'>❌ Thiếu thông tin đăng kí!</p>
+    </div>
+    <br>
+        <i class="fa-solid fa-arrow-left"></i>
+        <button type="button" onclick="window.location.href='https://rezaxones.com/index.html'">
+        Quay lại
+        </button>
+    </body>   
+    </html>`;
+    let successSignUp=`<!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <title>Không Tìm Thấy!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://rezaxones.com/storage/rezaxones_icon.png" rel="icon" type="image/png" />
+    <!--Open Graph-->
+    <meta property="og:url" content="https://rezaxones.com" />
+    <meta property="og:title" content="RezaxOnes" />
+    <meta property="og:description" content="Trang chủ của website rezaxones.com" />
+    <meta property="og:image" content="https://rezaxones.com/storage/rezaxones_image.png" />
+    <!---->
+    <!--API-->
+    <link href="https://rezaxones.com/style/error.css" rel="stylesheet"/>
+    <!---->
+    </head>
+    <body>
+    <div class='result'>
+        <p style='color:rgb(101, 216, 72);'>✅ Đăng ký thành công! </p>
+    </div>
+    <br>
+        <i class="fa-solid fa-arrow-left"></i>
+        <button type="button" onclick="window.location.href='https://rezaxones.com/index.html'">
+        Quay lại
+        </button>
+    </body>   
+    </html>`;
+    let exitsUser=`<!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <title>Không Tìm Thấy!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://rezaxones.com/storage/rezaxones_icon.png" rel="icon" type="image/png" />
+    <!--Open Graph-->
+    <meta property="og:url" content="https://rezaxones.com" />
+    <meta property="og:title" content="RezaxOnes" />
+    <meta property="og:description" content="Trang chủ của website rezaxones.com" />
+    <meta property="og:image" content="https://rezaxones.com/storage/rezaxones_image.png" />
+    <!---->
+    <!--API-->
+    <link href="https://rezaxones.com/style/error.css" rel="stylesheet"/>
+    <!---->
+    </head>
+    <body>
+    <div class='result'>
+        <p style='color:red;'>❌ Tên người dùng nãy đã tồn tại vui lòng tạo tên khác!</p>
+    </div>
+    <br>
+        <i class="fa-solid fa-arrow-left"></i>
+        <button type="button" onclick="window.location.href='https://rezaxones.com/index.html'">
+        Quay lại
+        </button>
+    </body>   
+    </html>`
   const { username, password, language } = req.body;
-  if (!username || !password) return res.status(400).json({ error: "Thiếu thông tin đăng ký" });
+  if (!username || !password) return res.send(inCompleteSignUp);
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const [rows] = await connection.query("INSERT INTO users (`USERNAME`, `PASSWORD`, `LANGUAGE`) VALUES (?, ?, ?)", [username, hashedPassword, language]);
-    res.json({ message: "Đăng ký thành công!", userId: rows.insertId });
+    res.send(successSignUp);
   } catch (err) {
     if (err.code === "ER_DUP_ENTRY") {
-      return res.status(400).json({ error: "Tên người dùng đã tồn tại!" });
+      return res.send(exitsUser);
     }
-      return res.status(500).json({ error: "Lỗi server", detail: err.message });
+      return res.status(500).json({ error: "Server hiện tại không hoạt động hoặc đang gặp sự cố mong bạn thông cảm!", detail: err.message });
       }
     
 });
 
 // Đăng nhập
 app.post("/sign_in", async (req, res) => {
+  let errorPassOrAcc=`<!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <title>Không Tìm Thấy!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://rezaxones.com/storage/rezaxones_icon.png" rel="icon" type="image/png" />
+    <!--Open Graph-->
+    <meta property="og:url" content="https://rezaxones.com" />
+    <meta property="og:title" content="RezaxOnes" />
+    <meta property="og:description" content="Trang chủ của website rezaxones.com" />
+    <meta property="og:image" content="https://rezaxones.com/storage/rezaxones_image.png" />
+    <!---->
+    <!--API-->
+    <link href="https://rezaxones.com/style/error.css" rel="stylesheet"/>
+    <!---->
+    </head>
+    <body>
+    <div class='result'>
+        <p style='color:red;'>❌ Sai tài khoản hoặc mật khẩu!</p>
+    </div>
+    <br>
+        <i class="fa-solid fa-arrow-left"></i>
+        <button type="button" onclick="window.location.href='https://rezaxones.com/index.html'">
+        Quay lại
+        </button>
+    </body>   
+    </html>`;
+    let fillInComplete=`<!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <title>Không Tìm Thấy!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://rezaxones.com/storage/rezaxones_icon.png" rel="icon" type="image/png" />
+    <!--Open Graph-->
+    <meta property="og:url" content="https://rezaxones.com" />
+    <meta property="og:title" content="RezaxOnes" />
+    <meta property="og:description" content="Trang chủ của website rezaxones.com" />
+    <meta property="og:image" content="https://rezaxones.com/storage/rezaxones_image.png" />
+    <!---->
+    <!--API-->
+    <link href="https://rezaxones.com/style/error.css" rel="stylesheet"/>
+    <!---->
+    </head>
+    <body>
+    <div class='result'>
+        <p style='color:red;'>❌ Chưa điền đầy đủ tên hoặc mật khẩu!</p>
+    </div>
+    <br>
+        <i class="fa-solid fa-arrow-left"></i>
+        <button type="button" onclick="window.location.href='https://rezaxones.com/index.html'">
+        Quay lại
+        </button>
+    </body>   
+    </html>`
   const { username, password} = req.body;
-  if (!username || !password) return res.status(400).json({ error: "Chưa điền đầy đủ tên hoặc mật khẩu" });
+  if (!username || !password) return res.send(fillInComplete);
     const [rows] = await connection.query("SELECT * FROM `users` WHERE `USERNAME` = ?", [username]);
-    if (rows.length === 0) return res.status(400).json({ error: "Sai tài khoản hoặc mật khẩu!" });
+    if (rows.length === 0) return res.send(errorPassOrAcc);
     const user = rows[0];
     const match = await bcrypt.compare(password, user.PASSWORD);
-    if (!match) return res.status(400).json({ error: "Sai tài khoản hoặc mật khẩu!" });
+    if (!match) return res.send(errorPassOrAcc);
     const token = jwt.sign({ userCookie: user.STT, username: user.USERNAME }, process.env.JWT_SECRET, { expiresIn: "24h" });
-    res.json({ message: "Đăng nhập thành công!", token });
+        let successLogIn=`<!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <title>Không Tìm Thấy!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://rezaxones.com/storage/rezaxones_icon.png" rel="icon" type="image/png" />
+    <!--Open Graph-->
+    <meta property="og:url" content="https://rezaxones.com" />
+    <meta property="og:title" content="RezaxOnes" />
+    <meta property="og:description" content="Trang chủ của website rezaxones.com" />
+    <meta property="og:image" content="https://rezaxones.com/storage/rezaxones_image.png" />
+    <!---->
+    <!--API-->
+    <link href="https://rezaxones.com/style/error.css" rel="stylesheet"/>
+    <!---->
+    </head>
+    <body>
+    <div class='result'>
+        <p style='color:rgb(101, 216, 72);'>✅ Đăng nhập thành công! </p>
+            <p style='color:rgb(37, 41, 48);'>Token phiên hiện tại: ${token.slice(0, 8)} ...</p>
+    </div>
+    <br>
+        <i class="fa-solid fa-arrow-left"></i>
+        <button type="button" onclick="window.location.href='https://rezaxones.com/index.html'">
+        Quay lại
+        </button>
+    </body>   
+    </html>`;
+    res.send(successLogIn);
 });
 
 // Profile
@@ -87,5 +255,6 @@ app.get("/profile", async (req, res) => {
 app.listen(9999, '0.0.0.0', () => {
   console.log('Server chạy ở http://localhost:9999');
 });
+
 
  */
