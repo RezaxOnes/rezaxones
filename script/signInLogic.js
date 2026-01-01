@@ -28,4 +28,3 @@
       alert('Lỗi kết nối database: ' + err.message);
     }
   });
-
