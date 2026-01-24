@@ -37,11 +37,12 @@
   catch {
   alert(data?.error || 'Đăng ký thất bại');
 }
-
+    if(data?.html)
+    {
     document.open();
     document.write(data.html);
     document.close();
-
+    }
   } catch (err) {
     alert('Lỗi kết nối database: ' + err.message);
   }
