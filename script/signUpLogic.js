@@ -1,3 +1,5 @@
+  document.getElementById('signUpForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
   const username = document.getElementById('your-user').value;
   const password = document.getElementById('your-pass').value;
   const language = document.getElementById('your-FavourLang').value;
@@ -43,3 +45,4 @@
   } catch (err) {
     alert('Lỗi kết nối database: ' + err.message);
   }
+});
