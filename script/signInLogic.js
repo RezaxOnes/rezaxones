@@ -1,4 +1,3 @@
-
 document.getElementById('signInForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const username = document.getElementById('username').value;
@@ -11,12 +10,13 @@ document.getElementById('signInForm').addEventListener('submit', async function(
       body: JSON.stringify({ username, password }),
     });
 
+    const clone = res.clone();
     let data;
 
     try {
       data = await res.json();
     } catch {
-      const html = await res.text();
+      const html = await clone.text();
       document.open();
       document.write(html);
       document.close();
