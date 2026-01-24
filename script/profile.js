@@ -1,7 +1,7 @@
 const token = localStorage.getItem("token");
 
 if (token) {
-  fetch("https://api.rezaxones.com/profile", {
+  fetch("https://singapore.api.hollawgostar.uno/profile", {
     method: "GET",
     headers: {
       "Authorization": "Bearer " + token
