@@ -47,3 +47,16 @@
     alert('Lỗi kết nối database: ' + err.message);
   }
 });
+
+document.getElementById("togglePass").addEventListener("click", () => {
+  const pass = document.getElementById("your-pass");
+  const icon = document.querySelector("#togglePass i");
+
+  if (pass.type === "password") {
+    pass.type = "text";
+    icon.classList.replace("fa-eye", "fa-eye-slash");
+  } else {
+    pass.type = "password";
+    icon.classList.replace("fa-eye-slash", "fa-eye");
+  }
+});

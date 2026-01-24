@@ -14,7 +14,7 @@
 }
 
 .password-box input {
-  padding-right: 35px;
+  padding-right: 40px;
 }
 
 #togglePass {
@@ -23,5 +23,9 @@
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  user-select: none;
+  color: #555;
+}
+
+#togglePass:hover {
+  color: black;
 }
