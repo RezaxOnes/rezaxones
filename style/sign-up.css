@@ -7,3 +7,21 @@
     position: relative;
     text-align: center;
 }
+
+.password-box {
+  position: relative;
+  display: inline-block;
+}
+
+.password-box input {
+  padding-right: 35px;
+}
+
+#togglePass {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
