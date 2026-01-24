@@ -28,7 +28,7 @@ document.getElementById('signInForm').addEventListener('submit', async function(
         localStorage.setItem('token', data.token);
         alert("Đã đăng nhập thành công");
       } catch (error) {
-        alert("Đăng nhập không thành công / Lỗi phía server");
+        alert("Đăng nhập không thành công hoặc Lỗi phía server");
       }
     } else {
       alert(data.error || 'Đăng nhập thất bại');
