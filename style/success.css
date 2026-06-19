@@ -1,0 +1,208 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
+
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f1f4f9;
+    color: #333;
+}
+
+.incenter {
+   font-family: "Roboto", sans-serif;
+   position: relative;
+   text-align: center;
+   margin: auto;
+}
+
+.h2_tcthbh {
+    display: block;
+    margin-bottom: 25px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+}  
+
+.wrapper-nguoc {
+  display: flex;
+  justify-content: flex-start;
+}  
+
+.divider {
+    display: block;
+    margin-top: 300px;
+    margin-bottom: 50px;
+    height: 5px;
+    background: #333;
+    width: 100%;
+}
+
+  .anh-inline {
+    width: 250px;       
+    height: auto;
+    margin-right: 80px;
+    margin-bottom: 80px;
+}
+
+.rezaxones-thumbnail {
+    font-family: "Roboto", sans-serif;
+    width: 90%;
+    font-size: 25px;
+    margin-left: 80px;
+    margin-right: auto;
+}
+
+  .anh-inline-2 {
+    width: 500px;         
+    height: auto;
+    margin-right: 80px;
+    margin-bottom: 30px;
+}
+
+
+
+ .h1-title {
+    font-family: "Roboto", sans-serif;
+    margin-top: 40px;
+ }
+
+ .fix-margin {
+    font-family: "Roboto", sans-serif;
+    margin-top: 20px;
+ }
+
+ .support_question {
+   display: block;
+   margin-top: 50px;
+ }
+
+
+.h1-blue-color {
+    color: #2b4c7e;
+}
+
+.h2-blue-color {
+    color: #2b4c7e;
+}
+
+form {
+    background-color: #fff;
+    line-height: 1.8;  
+    padding: 25px;
+    margin: auto;
+    width: 520px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+input[type="number"] {
+    width: 90%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+input[type="text"] {
+    font-family: "Roboto", sans-serif;
+    width: 80%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2b4c7e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #1e3555;
+}
+.result {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    width: 95%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th {
+    background-color: #2b4c7e;
+    color: white;
+    text-align: left;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.information-rezaxones {
+    text-align: left;
+}
+
+.information-rezaxones-bold {
+    font-weight: bold;
+}
+
+/* Nut bam tuy chinh toggle content */
+
+
+.accordion-item-title  {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    width: 90%;
+    max-width: 1020px;
+}
+
+.accordion-header-title {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #2b4c7e;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.accordion-content {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; 
+    background: #fff;
+}
+
+.accordion-content.active {
+  max-height: 500px;
+}  
+
+.rotate {
+  transform: rotate(180deg);
+} 
+
+.accordion-content-paragraph {
+    padding: 50px;
+}
+
+.arrow-transform {
+    display: inline-block;
+    transition: transform 0.5s ease;
+}

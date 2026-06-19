@@ -1,0 +1,133 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
+
+* {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+}
+
+body {
+    background-color: #9eaeca;
+}
+.password-box {
+  position: relative;
+  display: inline-block;
+}
+
+.password-box input {
+  padding-right: 40px;
+}
+
+#togglePass {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+}
+
+#togglePass:hover {
+  color: black;
+}
+
+.incenter {
+   position: relative;
+   text-transform: capitalize;
+   text-align: center;
+   margin: auto;
+}
+
+
+.box-2 {
+   display: block;  
+   position: relative;        
+   margin: 0 auto;
+   border: 5px solid #f3efef; 
+   padding: 10px;             
+   max-width: 100%; 
+   width: fit-content;             
+   box-sizing: border-box;      
+}
+
+.information-rezaxones {
+    text-align: left;
+}
+
+.information-rezaxones-bold {
+    font-weight: bold;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #2b4c7e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e3555;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+}  
+
+.wrapper-nguoc {
+  display: flex;
+  justify-content: flex-start;
+}  
+
+.divider {
+    display: block;
+    margin-top: 300px;
+    margin-bottom: 50px;
+    height: 5px;
+    background: #333;
+    width: 100%;
+}
+
+  .anh-inline {
+    width: 250px;       
+    height: auto;
+    margin-right: 80px;
+    margin-bottom: 80px;
+}
+
+.rezaxones-thumbnail {
+    font-family: "Roboto", sans-serif;
+    width: 90%;
+    font-size: 25px;
+    margin-left: 80px;
+    margin-right: auto;
+}
+
+  .anh-inline-2 {
+    width: 500px;         
+    height: auto;
+    margin-right: 80px;
+    margin-bottom: 30px;
+}
+
+.h1-blue-color {
+    color: #2b4c7e;
+}
+
+.h2-blue-color {
+    color: #2b4c7e;
+}
+
+.result {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px auto;
+    width: 95%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
