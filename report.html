@@ -14,7 +14,7 @@
     <meta property="og:image" content="https://rscdn.rezaxones.com/list/thumbnail_logo/black_white/rezaxones/rezaxones_thumbnail_2.jpg" />
     <!---->
     <!--API-->
-    <link href="https://rezaxones.com/style/report.css" rel='stylesheet' />
+    <link href="https://rezaxones.com/style/report.css" rel="stylesheet" />
     <!---->
 </head>
 
@@ -47,7 +47,7 @@
             <!-- social media -->
             <label for="socialmedia">Đường dẫn đến mạng xã hội</label>
             <br />
-            <input type="text" id="socialmedia" name="linkSocialMediaUser" maxlength="1000" placeholder="Nhập link đến mạng xã hội của bạn, ví dụ: https://....com/@... " required />
+            <textarea type="text" id="socialmedia" name="linkSocialMediaUser" maxlength="1000" placeholder="Nhập link đến mạng xã hội của bạn, ví dụ: https://....com/@... " required></textarea>
             <div class="count-view">
             <h4><span id="socialmedia-count">0</span>/1000</h4>
             </div>
@@ -56,7 +56,7 @@
             <!--name bug -->
             <label for="bugname">Tên của vấn đề</label>
             <br />
-            <input type="text" id="bugname" name="bugname" maxlength="200" placeholder="Nhập tên vấn đề bạn đang gặp phải" required />
+            <textarea type="text" id="bugname" name="bugname" maxlength="200" placeholder="Nhập tên vấn đề bạn đang gặp phải" required></textarea>
             <div class="count-view">
             <h4><span id="bugname-count">0</span>/200</h4>
             </div>
@@ -65,7 +65,7 @@
             <!-- where bug -->
             <label for="where_bug_happen">Nơi xảy ra lỗi</label>
             <br />
-            <input type="text" id="where_bug_happen" name="whereBug" maxlength="200" placeholder="Nhập nơi bạn gặp lỗi đó (rezaxones.com, Non-IDE-RezaxOnes)" required />
+            <textarea type="text" id="where_bug_happen" name="whereBug" maxlength="200" placeholder="Nhập nơi bạn gặp lỗi đó (rezaxones.com, Non-IDE-RezaxOnes)" required></textarea>
             <div class="count-view">
             <h4><span id="wherebug-count">0</span>/200</h4>
             </div>
@@ -74,7 +74,7 @@
             <!-- description -->
             <label for="description">Mô tả chi tiết hơn về lỗi</label>
             <br />
-            <input type="text" id="description" name="description" maxlength="10000" placeholder="Mô tả" required />
+            <textarea type="text" id="description" name="description" maxlength="10000" placeholder="Mô tả" required></textarea>
             <div class="count-view">
             <h4><span id="description-count">0</span>/10000</h4>
             </div>
@@ -108,32 +108,11 @@
             </div>
         </form>
         </div>
-
-    <div class="divider"></div>
-
-    <div class="wrapper-nguoc">
-    <a href="https://rezaxones.com" target="_blank"><img src="https://rscdn.rezaxones.com/list/thumbnail_logo/black_white/rezaxones/rezaxones_thumbnail_1.png" class="anh-inline-2" /></a>
-    </div>
-    <h1 class="wrapper-nguoc rezaxones-thumbnail"> Giải Pháp Công Nghệ RezaxOnes </h1>
-    <br /><br />
-
-    <div class="information-rezaxones">
-    <h2> Chủ sở hữu website: Ngô Tấn Phát</h2>
-    <h2> Mã Số Thuế: 091210010118</h2>
-    <h1 class="h1-blue-color"> An Giang - Văn Phòng Làm Việc RezaxOnes </h1>
-    <h2 class="h2-blue-color"> Địa chỉ chính thức: </h2>
-    <h3> Địa chỉ cũ: 306/12, Đường Nguyễn Bỉnh Khiêm, Phường Vĩnh Quang, Thành Phố Rạch Giá, Tỉnh Kiên Giang </h3>
-    <h3> Địa chỉ mới: 306/12, Đường Nguyễn Bỉnh Khiêm, Phường Rạch Giá, Tỉnh An Giang </h3>
-    <h2 class="h2-blue-color"> Email / Phương thức liên hệ khác (nếu có)</h2>
-    <h2 class="h2-blue-color"> Email: </h2>
-    <h3> Email RezaxOnes Studios: rezaxonesstudios@gmail.com <i class="fa-solid fa-envelope"></i></h3>
-    <h3> Email RezaxOnes Support: rezaxonesassist@gmail.com <i class="fa-solid fa-envelope"></i></h2>
-    <h2 class="h2-blue-color"> Contact: </h2>
-    <h3> Số điện thoại: 0359307578 <i class="fa-solid fa-phone"></i></h3>
-    <h3> Số điện thoại: 0337008152 <i class="fa-solid fa-phone"></i></h3>
-    </div>
+    
         <!-- End -->
-        <script src="https://rezaxones.com/script/report.js"></script>
+        <!-- Include Script -->
+        <script src="https://rezaxones.com/script/textarea_auto_resize.js"></script>
+        <script src="https://rezaxones.com/script/limitCharacter.js"></script>
         <script>
         countInput("username", "username-count", 200);
         countInput("email", "email-count", 300);
@@ -142,6 +121,7 @@
         countInput("where_bug_happen", "wherebug-count", 200);
         countInput("description", "description-count", 10000);
        </script>
+       <!-- End -->
 </body>
 
 </html>

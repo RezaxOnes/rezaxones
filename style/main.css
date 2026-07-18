@@ -3,6 +3,9 @@
 
  * {
    font-family: "Roboto", sans-serif;
+ }
+
+ body {
    background-color: #9eaeca;
  }
 
@@ -87,7 +90,6 @@
 #only4about {
    color: inherit;
    text-decoration-line: none;
-   margin-right: 20px;
 }
 
 .box-1 {

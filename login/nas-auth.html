@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RezaxOnes NAS Login</title>
+    <!--Open Graph-->
+    <meta property="og:url" content="https://rezaxones.com" />
+    <meta property="og:title" content="RezaxOnes" />
+    <meta property="og:description" content="Trang chủ của website rezaxones.com" />
+    <meta property="og:image" content="https://rscdn.rezaxones.com/list/thumbnail_logo/black_white/rezaxones/rezaxones_thumbnail_2.jpg" />
+    <!---->
+    <!--API-->
+    <link href="https://rezaxones.com/style/login.css" rel="stylesheet">
+    <link href="https://rezaxones.com/login/background.css" rel="stylesheet">
+    <!-- End -->
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+    <div class="bg-gradient-overlay"></div>
+    
+    <div class="main-content">
+    <div class="container">
+
+     <div class="tabs">
+        <a href="https://rezaxones.com/login/shop-auth.html" target="_self" class="tab-btn">RezaxOnes Shop</a>
+        <a href="https://rezaxones.com/login/warranty-auth.html" target="_self" class="tab-btn">RezaxOnes Warranty</a>
+        <a href="https://rezaxones.com/login/nas-auth.html" target="_self" class="tab-btn active">RezaxOnes NAS</a>
+    </div>
+
+    <!-- RezaxOnes NAS / nas.rezaxones.com -->
+    <div class="tab-content">
+        <h2> Đăng Nhập Vào NAS (Network Attached Storage)</h2>
+        <h2> Ubuntu Server - RezaxOnes Studios </h2>
+        <h2> Trang chính: <a href="https://nas.rezaxones.com/" target="_blank">nas.rezaxones.com</a></h2>
+        <form action="https://api.rezaxones.com/nas/sign_in_NAS" method="POST" id="signInForm" autocomplete="off">
+        <div class="input-group">
+        <input type="text" id="username" name="username" maxlength="100000" required/>
+        <label for=username>Username</label>
+        <div class="count-view">
+            <h4><span id="username-count">0</span>/100000</h4>
+        </div> 
+        </div>
+        <div class="input-group">
+        <input type="password" id="password" name="password" maxlength="100000" required/>
+        <label for="password">Password</label>
+        <span id="togglePass2" class="toggle-password-wrap">
+        <i class="fa-solid fa-eye"></i>
+        </span>
+        <div class="count-view">
+            <h4><span id="password-count">0</span>/100000</h4>
+        </div>
+        </div>
+        <button type="submit">Đăng nhập</button>
+        </form>
+    </div>
+    <!-- End -->
+
+</div>
+</div>
+</div>
+
+<!-- Include Script -->
+<script src="https://rezaxones.com/script/button_show_password.js"></script> 
+<script src="https://rezaxones.com/script/limitCharacter.js"></script>
+<script>
+    countInput("username", "username-count", 100000);
+    countInput("password", "password-count", 100000);
+</script>
+<!-- End -->
+</body>
+
+</html>

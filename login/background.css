@@ -1,0 +1,30 @@
+/* Khung bao bọc toàn màn hình (page-wrapper) */
+.page-wrapper {
+    min-height: 100vh;      /* Thay cho min-h-screen */
+    width: 100%;            /* Thay cho w-full */
+    position: relative;     /* Thay cho relative */
+    overflow: hidden;       /* Tránh bị vỡ hay tràn nền khi co giãn màn hình */
+}
+
+/* Lớp nền hiệu ứng (bg-gradient-overlay) */
+.bg-gradient-overlay {
+    position: absolute;     /* Thay cho absolute */
+    top: 0;                 /* Bộ bốn top, right, bottom, left này */
+    right: 0;               /* chính là thay thế cho `inset-0` */
+    bottom: 0;
+    left: 0;
+    z-index: 0;             /* Thay cho z-0 (nằm dưới cùng) */
+    
+    /* Hiệu ứng chuyển màu tỏa tròn từ giữa đỉnh màn hình xuống */
+    background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #6366f1 100%);
+}
+
+/* Lớp chứa nội dung (main-content) để nó nổi lên trên cái nền */
+.main-content {
+    position: relative;
+    z-index: 1;             /* Lớn hơn z-index của nền để đè lên trên */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}

@@ -1,0 +1,202 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
+
+
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #6b6ef0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #f2f3f5;
+    border: 1px solid #777;
+    border-radius: 8px;
+    width: 80%;
+    height: 80%;
+    padding: 60px 50px;
+    position: relative;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 50px; 
+}
+
+.tabs {
+    display: flex;
+    position: absolute;
+    top: -45px; /* Đẩy tabs lên khỏi container */
+    left: 0;
+    width: 100%;
+    padding: 0 15px;
+    gap: 8px;
+}
+
+.tab-btn {
+    text-decoration: none; 
+    display: inline-block;
+    text-align: center;
+    background: #f2f3f5;
+    color: #888;
+    border: 1px solid #777;
+    border-bottom: none;
+    padding: 12px 10px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    flex: 1;
+    transition: all 0.3s ease;
+    transform: translateY(7px); 
+    z-index: 1;
+}
+
+/* Trạng thái khi tab được chọn: chuyển xanh, nhô lên */
+.tab-btn.active {
+    background: #f2f3f5;
+    color: #121212; /* Chuyển xanh */
+    border-color: #777;
+    border-bottom: 1px solid #f2f3f5;
+    transform: translateY(0); 
+    z-index: 3;
+    box-shadow: 0 -3px 8px rgba(76, 175, 80, 0.15);
+}
+
+.tab-btn:hover:not(.active) {
+    color: #bbb;
+    background: #333;
+}
+
+.tab-content {
+    display: block; /* Hiện ra tự nhiên */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Elements minh họa bên trong */
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #4b4b4b;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4649d9;
+    color: #ededed;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background: #6b6ef0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.input-group input {
+    width: 100%;
+    padding: 14px 10px;
+    font-size: 20px;
+    border: 1px solid #3f4597;
+    outline: none;
+    border-radius: 4px;
+}
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 20px;
+    pointer-events: none;
+    transition: 0.3s ease;
+    background-color: #FFFFFF;
+    padding: 0 5px;
+}
+.input-group input:focus+label,.input-group
+input:valid+label {
+    top: -10px;
+    color: #1e1e1e;
+}
+
+/* Tránh trường hợp chữ mật khẩu dài quá bị con mắt đè lên chữ */
+.input-group input[type="password"],
+.input-group input[type="text"] {
+    padding-right: 40px; 
+}
+
+/* Ép con mắt bay vào góc phải bên trong ô input */
+.toggle-password-wrap {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%); /* Căn giữa chuẩn theo chiều dọc */
+    cursor: pointer;
+    z-index: 10; /* Đảm bảo nổi lên trên để bấm được */
+}
+
+/* Màu sắc mặc định của con mắt */
+.toggle-password-wrap i {
+    color: #777;
+    font-size: 18px;
+    transition: color 0.2s ease;
+}
+
+/* Rê chuột vào thì đổi màu cho chuyên nghiệp */
+.toggle-password-wrap:hover i {
+    color: #4649d9;
+}
+
+.count-view > h4 {
+    color: #121212 !important; 
+    margin: 0;
+    padding: 0;
+}
+
+.input-group .count-view {
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+    font-size: 15px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 20px 200px;
+    background-color: #2b4c7e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1e3555;
+}
