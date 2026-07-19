@@ -1,19 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const fields = document.querySelectorAll("input, select");
-    fields.forEach(field => {
-        if (field.id) {
-            const saved = sessionStorage.getItem(field.id);
-            if (saved !== null) 
-            { 
-                field.value = saved;
-            }
-            field.addEventListener("input", () => {
-            sessionStorage.setItem(field.id, field.value);
-            });
-        }
-    });
-});
-
     // 1. Xử lý bằng function
     
     function countInput(nameInputUser, nameUserCountView, limit)
